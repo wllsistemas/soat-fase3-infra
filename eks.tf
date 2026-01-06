@@ -27,7 +27,7 @@ resource "aws_security_group" "eks_cluster_sg" {
 ########################################################
 
 # CRIA O CLUSTER EKS
-resource "aws_eks_cluster" "fiap-soat-eks-cluster" {
+resource "aws_eks_cluster" "main" {
   name     = "fiap-soat-eks-cluster"
   role_arn = aws_iam_role.eks_cluster_role.arn
   version  = "1.32" 
@@ -44,7 +44,7 @@ resource "aws_eks_cluster" "fiap-soat-eks-cluster" {
 
 # CONIFGURA O GRUPO DE NÓS COM INSTANCIAS EC2
 resource "aws_eks_node_group" "main" {
-  cluster_name    = aws_eks_cluster.fiap-soat-eks-cluster.name
+  cluster_name    = aws_eks_cluster.main.name
   node_role_arn   = aws_iam_role.eks_node_role.arn
   subnet_ids      = data.aws_subnets.default.ids
   instance_types  = [var.instance_type] 
@@ -56,7 +56,7 @@ resource "aws_eks_node_group" "main" {
     max_size     = var.max_size
   }
   tags = {
-    "eks:cluster-name" = aws_eks_cluster.fiap-soat-eks-cluster.name
+    "eks:cluster-name" = aws_eks_cluster.main.name
     Name               = "fiap-soat-eks-node-tag"
   }
 }
