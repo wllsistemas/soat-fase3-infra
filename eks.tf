@@ -61,3 +61,19 @@ resource "aws_eks_node_group" "main" {
   }
 }
 ########################################################
+
+
+resource "null_resource" "update_kubeconfig" {
+  depends_on = [
+    aws_eks_cluster.main
+  ]
+
+  triggers = {
+    cluster_name = aws_eks_cluster.main.name
+    endpoint     = aws_eks_cluster.main.endpoint
+  }
+
+  provisioner "local-exec" {
+    command = "aws eks update-kubeconfig --name fiap-soat-eks-cluster --region us-east-2"
+  }
+}
