@@ -33,3 +33,29 @@ variable "max_size" {
   type        = number
   default     = 6
 }
+
+variable "datadog_api_key" {
+  type      = string
+  sensitive = true
+}
+
+variable "datadog_app_key" {
+  type      = string
+  sensitive = true
+  default   = null
+}
+
+variable "datadog_site" {
+  type    = string
+  default = "datadoghq.com"
+}
+
+variable "datadog_cluster_name" {
+  type    = string
+  default = "eks-prod"
+}
+
+variable "datadog_namespace" {
+  type    = string
+  default = "datadog"
+}

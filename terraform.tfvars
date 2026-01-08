@@ -1,0 +1,5 @@
+datadog_api_key      = "94576e3bbe19fcdde47d37d83daf1177"
+datadog_app_key      = "248a6195d9d8cd0abfd8caca04476d415d026aad"
+datadog_site         = "datadoghq.com"
+datadog_cluster_name = "eks-prod"
+datadog_namespace    = "datadog"
