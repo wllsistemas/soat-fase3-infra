@@ -23,6 +23,12 @@ resource "helm_release" "datadog" {
   chart      = "datadog"
   namespace  = var.datadog_namespace
 
+  depends_on = [
+    aws_eks_cluster.main,
+    aws_eks_node_group.main,
+    null_resource.update_kubeconfig
+  ]
+
   set = [
     {
       name  = "datadog.site"
