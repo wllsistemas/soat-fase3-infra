@@ -7,7 +7,7 @@ resource "kubernetes_namespace_v1" "datadog" {
 resource "kubernetes_secret_v1" "datadog" {
   metadata {
     name      = "datadog-secret"
-    namespace = var.datadog_namespace
+    namespace = kubernetes_namespace_v1.datadog.metadata[0].name
   }
 
   type = "Opaque"
@@ -21,7 +21,7 @@ resource "helm_release" "datadog" {
   name       = "datadog"
   repository = "https://helm.datadoghq.com"
   chart      = "datadog"
-  namespace  = var.datadog_namespace
+  namespace  = kubernetes_namespace_v1.datadog.metadata[0].name
 
   depends_on = [
     aws_eks_cluster.main,
