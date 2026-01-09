@@ -18,8 +18,8 @@ _Tech challenge_ da pós tech em arquitetura de software - FIAP Fase 3
     - LinkedIn: [@William Francisco Leite](https://www.linkedin.com/in/william-francisco-leite-9b3ba9269/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app)
 
 # Material
-- [Vídeo de apresentação](https://www.youtube.com/watch?v=POC_FaWt39E)
-- [Documento de entrega - PDF](https://drive.google.com/file/d/1Xl_8YgZHRIELfM3yCWjbswp4tD7Gxoin/view?usp=drive_link)
+- [Vídeo de apresentação](https://www.youtube.com/watch?v=V1vVXO1tRMg)
+- [Documento de entrega - PDF](https://drive.google.com/file/d/1Xl_8YgZHRIELfM3yCWjbswp4tD7Gxoin/view?usp=drive_link%5D(https://drive.google.com/file/d/1zYUQeFIhgjaYiCnvH5A9drwDD8-x_zzp/view?usp=sharing))
 
 # Sobre o projeto
 Este projeto foi desenvolvido com [Laravel](https://laravel.com), [nginx](https://nginx.org) e [postgresql](https://www.postgresql.org) e por volta dessas 3 tecnologias, está o [docker](https://www.docker.com)/[docker compose](https://docs.docker.com/compose) e toda uma arquitetura com kubernetes, utilizando terraform para provisionamento de rescursos na AWS.
@@ -57,3 +57,4 @@ Escrevemos um manifesto kubernetes `13-hpa-nginx.yaml` para automatizar o escalo
 |Média de Consumo Memória RAM| 15 | MegaBytes |
 
 O HPA garante que o Deployment **lab-soat-nginx** tenha entre 1 e 10 pods, escalando para cima se a utilização média da CPU exceder 15% (em relação ao request do pod) ou se o consumo médio de memória exceder 15Mi. O objetivo é manter a performance da aplicação otimizada, adicionando ou removendo pods conforme a demanda, sem intervenção manual
+
